@@ -6,12 +6,15 @@
 `define SDRAM_tWR 2
 `define SDRAM_tRP 15000
 
+// Old 3 pins MiSTer modules
 //`define SDRAM_DQM_SHARED
-
 `define SDRAM_CL 3			// 2
-`define SDRAM_RISKCONTENTION 0     	// 0
 
-//`define MISTER_DEBUG_NOHDMI
+// New MiSTer modules
+//`define SDRAM_DQM_SHARED
+//`define SDRAM_CL 2		
+
+`define SDRAM_RISKCONTENTION 0     	// 0
 
 
 
@@ -37,4 +40,8 @@
 
 // SDRAM_RISKCONTENTION <set to 1 to leave less space between reads and subsequent writes in CL3 mode.>
 
+//128 MB module: has to be CL2 and no more than 100MHz. 128 definitely won't work with CL3, because the DQMs for a Read command happen one cycle after the Read in CL3 mode, which means they clash with the address of the next Active command.
 
+//3 pins module: has to be CL3 and comment out //`define SDRAM_DQM_SHARED
+
+//OK ignore those two green stripes - two of the ports in the SDRAM controller are only 8 bits wide (the ones that show error bits of 0xff rather than 0xffff) - so it's currently failing completely.

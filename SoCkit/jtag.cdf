@@ -5,7 +5,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSXFC6D6F31C6) Path("output_files/") File("SDRAMStressTest_MiSTer.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSXFC6D6F31C6) Path("output_files/") File("SDRAMStressTest_SoCkit.sof") MfrSpec(OpMask(1));
 ChainEnd;
 
 AlteraBegin;
